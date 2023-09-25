@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreditController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -8,10 +9,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/add_credit', function () {
-    return view('add_credit');
-})->name('add_credit');
+Route::controller(CreditController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/new', 'create')->name('create_credit');
+    Route::post('/new', 'store')->name('store_credit');
+});

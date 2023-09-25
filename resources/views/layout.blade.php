@@ -14,14 +14,16 @@
             Credit Task
         </header>
         <nav class="bg-slate-900 text-gray-500">
-            <a href="{{ route('home') }}" class="inline-block p-2 hover:text-white {{ Route::is('home') ? 'text-white bg-black' : '' }}">
-                List Credits
-            </a>
-            <a href="{{ route('add_credit') }}" class="inline-block p-2 hover:text-white {{ Route::is('add_credit') ? 'text-white bg-black' : '' }}">
-                Add Credit
-            </a>
+            <div class="container">
+                <a href="{{ route('home') }}" class="inline-block p-2 hover:text-white {{ Route::is('home') ? 'text-white bg-black' : '' }}">
+                    List Credits
+                </a>
+                <a href="{{ route('create_credit') }}" class="inline-block p-2 hover:text-white {{ Route::is('create_credit') ? 'text-white bg-black' : '' }}">
+                    Create Credit
+                </a>
+            </div>
         </nav>
-        <main class="p-4">
+        <main class="p-4 container">
             @yield('content')
         </main>
     </body>
