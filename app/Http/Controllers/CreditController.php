@@ -33,6 +33,13 @@ class CreditController extends Controller
     public function store(StoreCreditRequest $request): RedirectResponse
     {
         $validated = $request->validated();
+
+        // Check if same person has exceeded the limit
+        $creditsSum = Credit::where('holder', $validated['holder'])->sum('sum');
+        if ($creditsSum + $validated['sum'] > 80000) {
+            return back()->withErrors(['holder' => 'Holder has exceeded the limit']);
+        }
+
         $credit = new Credit($validated);
         $credit->save();
         return to_route('home');
