@@ -1,6 +1,11 @@
 # Credit Task
 
-## Installation
+## 1. Installation
+
+### 1.1. Copy and modify .env
+`cp .env.example .env`
+
+### 1.2. Install dependencies
 ```
 composer install
 ./vendor/bin/sail up -d
