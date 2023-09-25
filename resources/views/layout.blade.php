@@ -13,7 +13,7 @@
         <header class="px-4 py-8 bg-gradient-to-tl from-slate-500 to-slate-300 text-2xl text-slate-800">
             Credit Task
         </header>
-        <nav class="bg-slate-900 text-gray-500">
+        <nav class="bg-slate-900 text-slate-400">
             <div class="container">
                 <a href="{{ route('home') }}" class="inline-block p-2 hover:text-white {{ Route::is('home') ? 'text-white bg-black' : '' }}">
                     List Credits

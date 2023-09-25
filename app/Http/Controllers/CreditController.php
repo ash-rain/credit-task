@@ -15,7 +15,7 @@ class CreditController extends Controller
      */
     public function index(): View
     {
-        $credits = Credit::all();
+        $credits = Credit::latest()->get();
         return view('home', compact('credits'));
     }
 

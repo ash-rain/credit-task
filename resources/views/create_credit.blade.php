@@ -4,6 +4,16 @@
 <form action="{{ route('store_credit') }}" method="POST">
     @csrf
 
+    @if ($errors->any())
+    <div class="bg-red-400 p-2">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="grid grid-cols-4 mb-1 gap-2">
         <label for="holder" class="text-right">Holder Name</label>
         <input type="text" id="holder" name="holder" class="p-2 border border-slate-800 col-span-2">

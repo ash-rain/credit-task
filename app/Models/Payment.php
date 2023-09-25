@@ -10,4 +10,8 @@ class Payment extends Model
     use HasFactory;
 
     protected $fillable = ['credit_id', 'amount'];
+
+    public function credit() {
+        return $this->belongsTo(Credit::class);
+    }
 }
