@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreditRequest;
+use App\Http\Requests\StoreCreditRequest;
 use App\Models\Credit;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -30,7 +30,7 @@ class CreditController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreditRequest $request): RedirectResponse
+    public function store(StoreCreditRequest $request): RedirectResponse
     {
         $validated = $request->validated();
         $credit = new Credit($validated);

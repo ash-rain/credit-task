@@ -21,6 +21,9 @@
                 <a href="{{ route('create_credit') }}" class="inline-block p-2 hover:text-white {{ Route::is('create_credit') ? 'text-white bg-black' : '' }}">
                     Create Credit
                 </a>
+                <a href="{{ route('create_payment') }}" class="inline-block p-2 hover:text-white {{ Route::is('create_payment') ? 'text-white bg-black' : '' }}">
+                    Create Payment
+                </a>
             </div>
         </nav>
         <main class="p-4 container">
