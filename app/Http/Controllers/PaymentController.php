@@ -25,8 +25,13 @@ class PaymentController extends Controller
     public function store(StorePaymentRequest $request)
     {
         $validated = $request->validated();
-        $credit = new Payment($validated);
-        $credit->save();
+        $credit = Credit::find($validated['credit_id']);
+        if ($credit->remaining < $validated['amount']) {
+            $validated['amount'] = $credit->remaining;
+            return back()->withErrors(['amount' => "Amount exceeds remaining. Pay only $credit->remaining."]);
+        }
+        $payment = new Payment($validated);
+        $payment->save();
         return to_route('home');
     }
 }
